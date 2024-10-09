@@ -1,3 +1,8 @@
 <!-- Herencia con mensajes y objetos-->
 <p> {{msg}} </p>
-<p>{{animals}}</p>
+@for(animal of animals; track animal)
+{
+  <p>{{animal.id}} - {{animal.name}}</p>
+  <img [src] = "animal.img" alt="" width="100">
+
+}

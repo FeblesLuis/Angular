@@ -33,14 +33,20 @@
 
 <!-- Bucle for (Objetos)-->
 <h1>Bloque &#64;for - Con Objetos</h1>
-@for(animal of animals.animals; track animal)
+@for(animal of animals.getAnimals(); track animal)
 {
   <p>{{animal.id}} - {{animal.name}}</p>
   <img [src] = "animal.img" alt="" width="100">
 
 }
 <!-- Herencia-->
-<h1>------------------Soy el componente CHILD!-------------------------</h1>
+<h1>------------------Soy el componente CHILD1!-------------------------</h1>
 <h1>Bloque &#64;input</h1>
 <app-child msg="Mensaje del padre para el hijo SIN variable"></app-child>
-<app-child [msg]="herencia" [animals]="animals"></app-child>
+<app-child [msg]="herencia"></app-child>
+<app-child [animals]="getAnimalList()"></app-child>
+<!-- Herencia-->
+<h1>------------------Soy el componente CHILD2!-------------------------</h1>
+<h1>Bloque &#64;Output</h1>
+<h2>Hola {{userName}}</h2>
+<app-child2 (loginEve)="setName($event)"></app-child2>

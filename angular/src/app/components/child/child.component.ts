@@ -11,5 +11,5 @@ export class ChildComponent {
   @Input()
   msg:string =''//Mensaje que llegara del padre
   @Input()
-  animals: any
+  animals: any[] = [];
 }

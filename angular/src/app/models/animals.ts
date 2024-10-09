@@ -7,7 +7,7 @@ export interface Animals {
 }
 
 export class Animals {
-    animals: any = 
+    private animals: any = 
     [
         { 
             id:1, 
