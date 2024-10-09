@@ -1,4 +1,23 @@
-<h1>---------------Practica 3 (NGClass | Clases dinamicas)---------------</h1>
+<h1>Practica 3 </h1>
+<h1>---------------NGClass | Clases dinamicas---------------</h1>
 <h2 [ngClass]="{dark: isDark, big:true}">Hola a todos</h2>
 
 <button (click)="toggleDark()">Toggle Dark</button>
+
+<h1>---------------Formularios reactivos---------------</h1>
+<!-- usamos el (submit) y no  (ngSubmit) para que no se recargue la pagina ya que es mas rapido -->
+<form [formGroup]="movieForm" (submit)="handleSubmit()">
+  <fieldset>
+
+    <label for="movie-name">Movie name</label>
+    <input type="text" id="movie-name" formControlName="name">
+
+    <label for="movie-duration">Movie duration</label>
+    <input type="text" id="movie-duration" formControlName="duration">
+
+    <label for="movie-director">Movie director</label>
+    <input type="text" id="movie-director" formControlName="director">
+
+  </fieldset>
+  <button>Create movie</button>
+</form>
