@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -22,9 +22,9 @@ export class AppComponent
 
   constructor()
   {
-    this.name = new FormControl('');
-    this.duration= new FormControl('');
-    this.director = new FormControl(''); 
+    this.name = new FormControl('', Validators.required);
+    this.duration= new FormControl('', [Validators.required, Validators.max(4)]);
+    this.director = new FormControl('', Validators.required); 
     this.movieForm = new FormGroup( //Necesita un objeto
       {
         name:this.name,
@@ -37,6 +37,7 @@ export class AppComponent
     // Aquí convertimos el valor del formulario a una cadena
     const formValue = JSON.stringify(this.movieForm.value, null, 2);
     alert(formValue); // Usar alert para mostrar el objeto
+    this.movieForm.reset(); //Limpia despues de mandar el dormulario
   }
 
   toggleDark()
