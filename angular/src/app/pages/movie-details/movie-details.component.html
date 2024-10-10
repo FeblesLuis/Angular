@@ -1,0 +1,10 @@
+<app-header></app-header>
+@if (selectedMovie)
+{
+    <h2>{{selectedMovie.name}}</h2>
+    <h2>{{selectedMovie.duration}}</h2>
+    <h2>{{selectedMovie.director}}</h2>
+} @else
+{
+    <h2>No existe la peli</h2>
+}
