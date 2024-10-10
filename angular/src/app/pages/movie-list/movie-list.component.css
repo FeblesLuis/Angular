@@ -1,0 +1,19 @@
+.movie-list
+{
+    margin: 30px;
+
+    .movie-item
+    {
+        padding-left: 20px;
+        background-color: lightcoral;
+        border-bottom: 2px solid black;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 20x;
+    }
+    .movie-item:hover
+    {
+        background-color: orange;
+    }
+}

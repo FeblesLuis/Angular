@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-movie-form',
@@ -20,7 +21,7 @@ export class MovieFormComponent
   duration: FormControl;
   director: FormControl;
 
-  constructor()
+  constructor(public movieService: MovieService)
   {
     this.name = new FormControl('', Validators.required);
     this.duration= new FormControl('', [Validators.required, Validators.max(4)]);
@@ -34,9 +35,9 @@ export class MovieFormComponent
   }
   handleSubmit() : void //Metodo que solo muestra el formulario en un mensaje de alerta 
   {
-    // Aquí convertimos el valor del formulario a una cadena
     const formValue = JSON.stringify(this.movieForm.value, null, 2);
-    alert(formValue); // Usar alert para mostrar el objeto
-    this.movieForm.reset(); //Limpia despues de mandar el dormulario
+    alert(formValue); 
+    this.movieService.addMovie(this.movieForm.value) //Agregamos el servicio a la lista de movies de las pages
+    this.movieForm.reset(); 
   }
 }
