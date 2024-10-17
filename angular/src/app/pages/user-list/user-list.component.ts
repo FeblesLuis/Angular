@@ -14,18 +14,30 @@ export class UserListComponent implements OnInit {
   constructor(public userService: UserService) {}
 
   ngOnInit(): void {
-    this.getUsers();    
+    this.getUsers();
   }
 
   getUsers() {
-    this.userService.getUsers().subscribe({ //De obtener usuarios quiero la data de ellos del link del Json
-      next: (data) => { //Reciben un objeto, en este caso la data del json
+    this.userService.getUsers().subscribe({
+      next: (data) => {
         console.log(data);
-        this.userService.users = data;        
+        this.userService.users = data;
       },
       error: (e) => {
-        console.log(e);        
-      }
-    })
+        console.log(e);
+      },
+    });
+  }
+
+  deleteUser(id: number) {
+    this.userService.deleteUser(id).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.getUsers();
+      },
+      error: (e) => {
+        console.log(e);
+      },
+    });
   }
 }
