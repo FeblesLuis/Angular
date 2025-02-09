@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../../controllers/user.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
